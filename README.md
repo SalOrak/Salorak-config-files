@@ -1,0 +1,2 @@
+# Salorak-config-files
+.config
