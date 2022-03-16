@@ -1,0 +1,76 @@
+#!/bin/bash
+
+
+
+# Check if it's running root
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit 1 
+fi
+
+# Colors
+redf=$(tput setaf 1)
+blackf=$(tput setaf 0)
+greenb=$(tput setab 2)
+whiteb=$(tput setab 7)
+rst=$(tput sgr0)
+
+# user is running the service as root
+
+# Check openvpn is running
+# ps -C openvpn | awk '{print $1}' 
+PID=$(ps --no-header -C openvpn | awk '{print $1}')
+
+# File var.txt is where the options are set 
+# Contains icon, name and target.
+VAR=/Scripts/Var/var.txt
+
+
+if [[ -z $PID  ]]; then
+	printf "Choose $redf$whitebﲴ$rst TryHackMe or $greenb$blackf$rst HackTheBox? [1:THM / 2:HTB]:  "
+	
+	read ans # Read answer
+	case $ans in
+		THM | tryhackme | thm | 1)
+        	 echo "Starting $redf$whitebﲴ$rst TryHackMe openvpn..."
+		 printf "ICON=\nNAME=THM\nTARGET="  > $VAR
+		 openvpn /home//openVPN/thm/ovpn.ovpn &
+		 ;;
+
+		HTB | hackthebox | htb | 2)
+		 echo
+		 echo "Starting $greenb$blackf$rst HackTheBox openvpn..."
+		 printf "ICON=\nNAME=HTB\nTARGET=" >  $VAR
+		 openvpn /home/ovpn/openVPN/htb/lab_Zh4l0.ovpn &
+			;;
+		*)
+			echo "Invalid or not selected option"
+			
+	esac
+else
+	echo "openVPN is running with PID $PID"
+	printf "Stop service? [Y/N]:  "
+	
+	read ans 
+	case $ans in 
+		Y | y | yes | Yes | YES | 1)
+			echo "Stopping service..."
+ 			printf "ICON=\nNAME=\nTARGET=" >  $VAR
+			kill $PID 1&>/dev/null
+			while [ -e /proc/$PID ]; do
+                        	: # Every process created has a file associated to it inside /proc/... 
+			done
+			echo "openVPN process successfully killed."
+			settarget
+			;;
+		N | n | no | No | NO | 0)
+			echo "Service running as per usual"
+			;;
+		*)
+			echo "Invalid option \n Service running as per usual"
+			exit 0	
+	esac
+fi
+
+exit 0
+
