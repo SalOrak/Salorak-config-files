@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Settarget: Creates a file with my own ip and a target ip set
+
+MYIP=$(ifconfig tun0 | grep inet | awk '{print$2}' | head -n 1)
+
+TARGET=$1
+FILE=/tmp/target
+REPLACE=0
+
+while getops "r:" opt; do
+	case $opt in
+		r) REPLACE=1 ;; # Replaces files if exists
+		\?) exit 1;;
+	esac
+done
+
+
+
+if [[ -e $FILE ]]; then
+	if [[ $REPLACE -eq 1 ]]; then
+		echo $1 > $FILE
+		echo $1 | xclip -selection c
+	fi
+else
+	echo $1 > $FILE
+	
+fi
+
+exit 0
+

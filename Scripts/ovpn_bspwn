@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 # Check if it's running root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
@@ -13,11 +15,15 @@ greenb=$(tput setab 2)
 whiteb=$(tput setab 7)
 rst=$(tput sgr0)
 
-# Check if openvpn is running
-PID=$(ps --noheader -C openvpn | awk '{print $1}')
+# user is running the service as root
 
-# Path to variable persistence
-ptvp=/tmp/ptvp
+# Check openvpn is running
+# ps -C openvpn | awk '{print $1}' 
+PID=$(ps --no-header -C openvpn | awk '{print $1}')
+
+# File var.txt is where the options are set 
+# Contains icon, name and target.
+VAR=/Scripts/Var/var.txt
 
 
 if [[ -z $PID  ]]; then
@@ -27,15 +33,15 @@ if [[ -z $PID  ]]; then
 	case $ans in
 		THM | tryhackme | thm | 1)
         	 echo "Starting $redf$whitebﲴ$rst TryHackMe openvpn..."
-		 #printf "ICON=\nNAME=THM\nTARGET="  > $ptvp
-		 openvpn /home/salorack/openVPN/thm/thm.ovpn &
+		 printf "ICON=\nNAME=THM\nTARGET="  > $VAR
+		 openvpn /home//openVPN/thm/ovpn.ovpn &
 		 ;;
 
 		HTB | hackthebox | htb | 2)
 		 echo
 		 echo "Starting $greenb$blackf$rst HackTheBox openvpn..."
-		 #printf "ICON=\nNAME=HTB\nTARGET=" >  $ptvp
-		 openvpn /opt/openvpn/machines.ovpn &
+		 printf "ICON=\nNAME=HTB\nTARGET=" >  $VAR
+		 openvpn /home/ovpn/openVPN/htb/lab_Zh4l0.ovpn &
 			;;
 		*)
 			echo "Invalid or not selected option"
@@ -49,7 +55,7 @@ else
 	case $ans in 
 		Y | y | yes | Yes | YES | 1)
 			echo "Stopping service..."
- 			printf "ICON=\nNAME=\nTARGET=" >  $ptvp
+ 			printf "ICON=\nNAME=\nTARGET=" >  $VAR
 			kill $PID 1&>/dev/null
 			while [ -e /proc/$PID ]; do
                         	: # Every process created has a file associated to it inside /proc/... 
