@@ -13,10 +13,14 @@ fi
 echo "Setting up directories..."
 mkdir /home/$USER/repos/
 
+# Updating and Upgrading System 
+apt update -y
+apt upgrade -y 
+
 ## Downloading process
 # Git clone config files
 echo "Cloning git config repository..."
-git clone -q https://github.com/SalOrak/Salorak-config-files /home/$USER/repos/
+git clone -q git@github.com:SalOrak/Salorak-config-files.git /home/$USER/repos/
 
 # Downloading Obsidian.AppImage 0.15.9 (10/08/2022)
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.15.9/Obsidian-0.15.9.AppImage -O /home/$USER/Documents/Obsidian.AppImage
