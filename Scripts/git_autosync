@@ -6,17 +6,30 @@
 
 export PATH=$PATH/usr/local/bin
 
-gstatus=`git status --porcelain`
-if [ ${#gstatus} -ne 0 ]
-then
-  git add --all
-  sleep 10
-  git commit -m "Automated sync: $gstatus"
-  sleep 10
-  git pull --rebase
-  sleep 10
-  git push
-fi
+#ptr="/data/data/com.termux/files/home/storage/dcim/repos/"
+ptr="/home/salorack/repos/salorack/"
+repos=$(find $ptr -mindepth 1 -maxdepth 1 -type d) # List all repositories
+
+for repo in $repos: 
+do
+  if [[ -d $repo ]]; then  
+    cd $repo
+    echo $(pwd)
+    gstatus=`git status --porcelain`
+    if [[ ${#gstatus} -ne 0 ]];
+    then
+      echo "Git process activated" 
+      git add --all
+      sleep 10
+      git commit -m "Automated sync: $gstatus"
+      sleep 10
+      git pull --rebase
+      sleep 10
+      git push
+    fi
+  fi
+done
+
 
 
 
