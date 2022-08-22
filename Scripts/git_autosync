@@ -4,7 +4,7 @@
 # Primarly used for automatic Obsidian project synchronization.
 # Taken from https://www.youtube.com/watch?v=H6ipjzaN2WY&t=965s
 
-#export PATH=$PATH/usr/local/bin
+#export PATH=$PATH/usr/local/bin #
 
 ptr="/data/data/com.termux/files/home/storage/dcim/repos/"
 #ptr="/home/salorack/repos/salorack/"
