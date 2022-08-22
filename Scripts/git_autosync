@@ -16,6 +16,7 @@ do
     cd $repo
     echo $(pwd)
     gstatus=`git status --porcelain`
+    echo $gstatus
     if [[ ${#gstatus} -ne 0 ]];
     then
       echo "Git process activated" 
