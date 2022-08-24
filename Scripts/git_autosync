@@ -6,7 +6,7 @@
 
 #export PATH=$PATH/usr/local/bin #
 
-ptr="/storage/emulated/0/DCIM/repos/"
+ptr="~/storage/DCIM/repos/"
 #ptr="/home/salorack/repos/salorack/"
 repos=$(find $ptr -mindepth 1 -maxdepth 1 -type d) # List all repositories
 
