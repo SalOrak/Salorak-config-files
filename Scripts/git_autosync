@@ -10,7 +10,7 @@ ptr="~/storage/DCIM/repos/"
 #ptr="/home/salorack/repos/salorack/"
 repos=$(find $ptr -mindepth 1 -maxdepth 1 -type d) # List all repositories
 
-
+mkdir ItWorks
 
 for repo in $repos: 
 do
