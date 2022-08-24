@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Git autosync script.
+# Primarly used for automatic Obsidian project synchronization.
+# Taken from https://www.youtube.com/watch?v=H6ipjzaN2WY&t=965s
+
+export PATH=$PATH/usr/local/bin #
+
+ptr="/home/salorack/repos/"
+repos=$(find $ptr -mindepth 1 -maxdepth 1 -type d) # List all repositories
+
+for r in $repos  : 
+do
+  echo $r
+  if [[ -d $r ]]; then  
+    cd $r
+    echo $(pwd)
+    gstatus=`git status --porcelain`
+    echo $gstatus
+    if [[ ${#gstatus} -ne 0 ]];
+    then
+      echo "Git process activated" 
+      git add --all
+      sleep 10
+      git commit -m "Automated sync: $gstatus"
+      sleep 10
+      git pull --rebase
+      sleep 10
+      git push
+    fi
+  fi
+done
+
+
+
+
+
