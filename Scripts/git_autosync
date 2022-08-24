@@ -28,6 +28,8 @@ do
       git pull --rebase
       sleep 10
       git push
+    else
+	git pull
     fi
   fi
 done
