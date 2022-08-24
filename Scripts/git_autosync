@@ -15,7 +15,6 @@ for repo in $repos :
 do
   if [[ -d $repo ]]; then  
     cd $repo
-    mkdir ItWorks
     echo $(pwd)
     gstatus=`git status --porcelain`
     echo $gstatus
