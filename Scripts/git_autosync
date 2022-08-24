@@ -10,12 +10,12 @@ ptr="~/storage/DCIM/repos/"
 #ptr="/home/salorack/repos/salorack/"
 repos=$(find $ptr -mindepth 1 -maxdepth 1 -type d) # List all repositories
 
-mkdir ItWorks
 
 for repo in $repos: 
 do
   if [[ -d $repo ]]; then  
     cd $repo
+    mkdir ItWorks
     echo $(pwd)
     gstatus=`git status --porcelain`
     echo $gstatus
