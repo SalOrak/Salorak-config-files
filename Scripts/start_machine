@@ -1,0 +1,98 @@
+#!/bin/bash
+
+##################
+## FUNCTIONS ####
+##################
+# Function: extracts ports from 
+function extractPorts(){
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | tr '\n' ',' | tr -d ':')"
+	echo "${ports::-1}"
+}
+
+# Function: Exit with error
+exit_abnormal(){
+	usage
+	exit 1
+}
+
+# Function: Usage help message
+usage(){
+	echo "Usage: $0 [-n MACHINE NAME] [-t TARGET]"
+}
+
+## Automates port scanning of machines
+
+#####################
+###### SWITCHES ########
+######################
+MACHINE_NAME=""                                # Name of the machine
+TARGET="" 					#  TARGET of the machine
+
+unset -v MACHINE_NAME
+unset -v TARGET
+
+#####################
+##### CONSTANTS ####
+####################
+wd="/home/salorack/machines"
+
+
+
+while getopts ":t:n:" options; do
+	case "${options}" in
+		t)   # Set TARGET option
+			TARGET=${OPTARG}
+			echo "Tryng to reach target.."
+			if ! ping -q -w 1 -c 1 $TARGET > /dev/null; then
+				echo -e "Error: Target is not reacheable.\nExitting..."
+				exit_abnormal
+			fi
+			echo "Target $TARGET is reacheable"
+			;;
+		n)   # Set MACHINE_NAME option
+			MACHINE_NAME=${OPTARG}
+			if [[ -d "$wd/$MACHINE_NAME" ]]; then
+				echo -e "Error: Machine $MACHINE_NAME already exists\nExitting..."
+				exit_abnormal
+			fi
+			;;
+		:)  # If expected argument omitted:
+			echo "Error -${OPTARG} requires an argument."
+			exit_abnormal
+			;;
+		*)  # If unknown (any other) option
+			exit_abnormal
+			;;
+
+	esac
+done
+
+if [ -z "$TARGET" ] || [ -z "$MACHINE_NAME" ]; then
+	echo "Missing arguments..."
+	usage
+	exit 1
+fi
+
+
+# Creates directories
+echo "Creating directories for machine $MACHINE_NAME"
+mkdir -p "$wd/$MACHINE_NAME/nmap/"
+nmap_wd="$wd/$MACHINE_NAME/nmap"
+
+
+# Running nmap
+### Initial nmap (common ports)
+echo "Starting nmap init with common ports..."
+nmap -Pn --open -n -T5 $TARGET -oG "$nmap_wd/initial" 1>/dev/null
+echo "Extracting ports from initial nmap..."
+init_ports="$(extractPorts "$nmap_wd/initial")"
+echo "Init ports: $init_ports"
+
+### Init scan nmap to get open ports all
+echo "Starting nmap init with all ports..."
+nmap -p- --open -Pn -n -T5 $TARGET -oG "$nmap_wd/allports" 1> /dev/null
+echo "Extracting ports from all ports map..."
+all_ports=$(extractPorts "$nmap_wd/allports")
+echo "All ports: $all_ports"
+
+exit 0
