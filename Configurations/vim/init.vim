@@ -1,3 +1,5 @@
+"" Made by: Sal O'Rak
+
 call plug#begin()
 
 "" Highly extendable fuzzy finder over lists. 
