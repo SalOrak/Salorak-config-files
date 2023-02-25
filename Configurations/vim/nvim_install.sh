@@ -1,7 +1,6 @@
 #!/bin/bash 
  
 ## Install nvim
- 
 if [[ ! $(dpkg-query -l "neovim") ]];
 then
 	echo "<<! Installing neovim... !>>"
@@ -10,7 +9,18 @@ else
 	echo "<<! Found neovim package... !>>"
 	echo "<<! Skipping neovim installation... !>>"
 fi
- 
+
+# Install latexmk
+if [[ ! $(dpkg-query -l "  latexmk") ]];
+then
+	echo "<<! Installing latexmk... !>>"
+	sudo apt-get install latexmk -y
+	sudo apt-get install texlive-luatex -y # Installs dependencies not found on certain distros such as Debian
+else
+	echo "<<! Found latexmk package... !>>"
+	echo "<<! Skipping latexmk installation... !>>"
+fi
+
 ## Install Vim-Plug
 echo "<< Installing Vim-Plug ?>>"
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

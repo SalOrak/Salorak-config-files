@@ -14,13 +14,14 @@ Plug 'vim-airline/vim-airline-themes'
 "" checker and siplays any resulting erros to the users. 
 Plug 'scrooloose/syntastic'
 Plug 'rust-lang/rust.vim' "Rust Checker
+Plug 'lervag/vimtex' "LaTeX checker
+
 call plug#end()
  
  
 " #########################
 " # General Configuration #
 " #########################
- 
 "" Set 'nocompatible' to ward off unexpected things that your distro might
 "" have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible

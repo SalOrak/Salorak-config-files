@@ -37,6 +37,11 @@ Now, save `:w`, source it `:source %` and run `:PlugInstall`
 
 That's it, you are ready to go!
 
+# APT Requirements
+
+- `nvim`
+- `latexmk` : Compile `.tex` files and more. 
+- `zathura` : PDF viewer. Extremily powerful and customizable. Vi keys works by default.
 
 # Plugins
 
@@ -47,3 +52,5 @@ List of plugins:
 - telescope
 - syntastic
 - rust.vim
+- vimtex (To work with `.tex` files)
+
