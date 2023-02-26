@@ -28,3 +28,12 @@ https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcu
 Guide to Efficiently write LaTeX documents using Neovim
 (Part 5, 6 and 7 for setup)
 https://www.ejmastnak.com/tutorials/vim-latex/pdf-reader/#zathura-on-linux-tested-with-i3-on-arch-using-zathura-048
+
+
+
+Develop lecture notes with Vim and Ultisnip
+https://castel.dev/post/lecture-notes-1/
+
+
+Learning Vimscript the hard way
+https://learnvimscriptthehardway.stevelosh.com/preface.html

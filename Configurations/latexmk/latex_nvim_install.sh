@@ -30,7 +30,7 @@ then
 		Y | y | yes | Yes | YES )
 			echo "<< Overriding latexmk configuration >>"
 			rm $HOME/.config/latexmk/.latexmkrc
-			ln -s $(pwd)/latexmkrc $HOME/.config/latexmk/.latexmkrc
+			ln -s $(pwd)/latexmkrc $HOME/.config/latexmk/latexmkrc
 			;;
 		*)
 		echo "<<! Exiting latexmk configuration. !>>"	

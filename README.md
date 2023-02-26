@@ -6,8 +6,16 @@ This repository would contains all the .config files I have been developing over
 ### Applications
 
 - tmux
+<<<<<<< HEAD
 - vim 
 - obsidian
+=======
+- nvim 
+- obsidian (Gonna delete this soon hehe)
+- latexmk (Latex Perl Compiler)
+- zathura (PDF Viewer)
+- glow (Terminal based markdown reader) 
+>>>>>>> 7512aaf (LaTeX compilation WORKS! Plus extra)
 
 
 

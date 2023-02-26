@@ -29,6 +29,7 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 ## Link nvim init file
 echo "<< Soft link nvim init configuration ?>>"
 mkdir -p ~/.config/nvim
+mkdir -p ~/.config/nvim/ftplugin
 if [[ -e "$HOME/.config/nvim/init.vim" || -h "$HOME/.config/nvim/init.vim" ]];
 then
 	echo "<<?? Do you want to override configuration??>>  [y/N]"
@@ -47,6 +48,7 @@ then
  
 else
 	ln -s $(pwd)/init.vim $HOME/.config/nvim/init.vim
+	ln -s $(pwd)/ftplugin/tex.vim $HOME/.config/nvim/ftplugin/tex.vim
 fi
  
  
