@@ -16,12 +16,15 @@ if [[ ! $(dpkg-query -l "zathura") ]];
 then
 	echo "<<! Installing zathura.. !>>"
 	sudo apt-get install zathura -y 
+else
+	echo "<!! Found zathura ..!>>"
+	echo "<!! Skipping zathura installation...!>>"
 fi
 
 ## Link latexmkrc file
 echo "<< Soft link latexmkrc configuration ?>>"
 mkdir -p ~/.config/latexmk/
-if [[ -e "$HOME/.config/latexmk/.latexmkrc" || -h "$HOME/.config/latexmk/.latexmkrc" ]];
+if [[ -e "$HOME/.config/latexmk/latexmkrc" || -h "$HOME/.config/latexmk/latexmkrc" ]];
 then
 	echo "<<?? Do you want to override configuration??>>  [y/N]"
 	read -r -n 1 input
@@ -29,7 +32,7 @@ then
 	case $input in
 		Y | y | yes | Yes | YES )
 			echo "<< Overriding latexmk configuration >>"
-			rm $HOME/.config/latexmk/.latexmkrc
+			rm $HOME/.config/latexmk/latexmkrc
 			ln -s $(pwd)/latexmkrc $HOME/.config/latexmk/latexmkrc
 			;;
 		*)
@@ -38,7 +41,7 @@ then
 	esac
  
 else
-	ln -s $(pwd)/latemkrc $HOME/.config/latexmk/.latexmkrc
+	ln -s $(pwd)/latexmkrc $HOME/.config/latexmk/latexmkrc
 fi
 
 echo ":: LATEX installation completed ::"
