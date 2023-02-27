@@ -59,6 +59,7 @@ set relativenumber
 
 " UltiSnips Configuration
 "" Trigger configuration
+let g:UltiSnipsSnippetDirectories=["my_snippets"]
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<C-tab>"
 let g:UltiSnipsJumpForwardTrigger="<C-k>"
@@ -66,6 +67,6 @@ let g:UltiSnipsJumpBackwardTrigger="<C-j>"
 
 " Telescope Configuration
 "" Find files
-let mapleader=","
+let mapleader=" "
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>

@@ -9,6 +9,7 @@ else
 	echo "<<! Found neovim package... !>>"
 	echo "<<! Skipping neovim installation... !>>"
 fi
+
 ## Install fd (for fast find)
 if [[ !$(dpkg-query -l "fdfind") ]];
 then
@@ -43,6 +44,7 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 echo "<< Soft link nvim init configuration ?>>"
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/nvim/ftplugin
+mkdir -p ~/.config/nvim/my_snippets
 if [[ -e "$HOME/.config/nvim/init.vim" || -h "$HOME/.config/nvim/init.vim" ]];
 then
 	echo "<<?? Do you want to override configuration??>>  [y/N]"
@@ -55,6 +57,7 @@ then
 			rm $HOME/.config/nvim/ftplugin/tex.vim
 			ln -s $(pwd)/init.vim $HOME/.config/nvim/init.vim
 			ln -s $(pwd)/ftplugin/tex.vim $HOME/.config/nvim/ftplugin/tex.vim
+			cp $(pwd)/my_snippets/* $HOME/.config/nvim/my_snippets/
 			;;
 		*)
 		echo "<<! Exiting nvim configuration. !>>"	
@@ -64,6 +67,7 @@ then
 else
 	ln -s $(pwd)/init.vim $HOME/.config/nvim/init.vim
 	ln -s $(pwd)/ftplugin/tex.vim $HOME/.config/nvim/ftplugin/tex.vim
+	cp $(pwd)/my_snippets/* $HOME/.config/nvim/my_snippets/
 fi
  
  
