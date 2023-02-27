@@ -9,16 +9,29 @@ else
 	echo "<<! Found neovim package... !>>"
 	echo "<<! Skipping neovim installation... !>>"
 fi
-
-# Install latexmk
-if [[ ! $(dpkg-query -l "  latexmk") ]];
+## Install fd (for fast find)
+if [[ !$(dpkg-query -l "fdfind") ]];
 then
-	echo "<<! Installing latexmk... !>>"
-	sudo apt-get install latexmk -y
-	sudo apt-get install texlive-luatex -y # Installs dependencies not found on certain distros such as Debian
+	# https://github.com/sharkdp/fd#installation
+	echo "<<! Installing fdfing..!>>"
+	sudo apt-get install fd-find
+	mkdir -p $HOME/.local/bin/fd
+	source ~/.profile
+	ln -s $(which fdfind) ~/.local/bin/fd
 else
-	echo "<<! Found latexmk package... !>>"
-	echo "<<! Skipping latexmk installation... !>>"
+	echo "<<! Found fdfind package..!>>"
+	echo "<<! Skipping fdfind installation..!>>"
+fi
+
+## Install ripgrep ( line-oriented search tool that recursively searches the current dir for a reg pattern.
+if [[ !$(dpkg-query -l "ripgrep") ]];
+then
+	## https://github.com/BurntSushi/ripgrep#installation
+	echo "<<! Installing ripgrep..!>>"
+	sudo apt-get install ripgrep
+else
+	echo "<<! Found ripgrep package..!>>"
+	echo "<<! Skipping ripgrep installation..!>>"
 fi
 
 ## Install Vim-Plug
@@ -39,7 +52,9 @@ then
 		Y | y | yes | Yes | YES )
 			echo "<< Overriding nvim init configuration >>"
 			rm $HOME/.config/nvim/init.vim
+			rm $HOME/.config/nvim/ftplugin/tex.vim
 			ln -s $(pwd)/init.vim $HOME/.config/nvim/init.vim
+			ln -s $(pwd)/ftplugin/tex.vim $HOME/.config/nvim/ftplugin/tex.vim
 			;;
 		*)
 		echo "<<! Exiting nvim configuration. !>>"	

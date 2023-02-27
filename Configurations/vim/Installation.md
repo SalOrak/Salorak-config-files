@@ -50,6 +50,7 @@ List of plugins:
 - vim-airline-themes
 - plenary
 - telescope
+- UltiSnips
 - syntastic
 - rust.vim
 - vimtex (To work with `.tex` files)

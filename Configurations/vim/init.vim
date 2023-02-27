@@ -2,13 +2,19 @@
  
 call plug#begin()
  
-"" Highly extendable fuzzy finder over lists. 
-Plug 'nvim-lua/plenary.nvim'
+"" Telescope Highly extendable fuzzy finder over lists. 
+""" Telescope Dependencies
+Plug 'nvim-lua/plenary.nvim' 
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
  
 "" Themes. Lean & mean status/tablin for vims thta's light as air.
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+"" UltiSnips is the ultimate solution for snippets in Vim. it has many
+"" features speed being one of the
+Plug 'SirVer/ultisnips'
  
 "" Syntax checking plugin. It runs files through external syntax
 "" checker and siplays any resulting erros to the users. 
@@ -50,3 +56,16 @@ set autoindent
 " It uses relative numbers for all lines except the current line
 set number
 set relativenumber
+
+" UltiSnips Configuration
+"" Trigger configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<C-tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-k>"
+let g:UltiSnipsJumpBackwardTrigger="<C-j>"
+
+" Telescope Configuration
+"" Find files
+let mapleader=","
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
