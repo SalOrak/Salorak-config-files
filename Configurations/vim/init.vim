@@ -8,9 +8,13 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
  
-"" Themes. Lean & mean status/tablin for vims thta's light as air.
+"" Themes. 
+""" Status theme: Lean & mean status/tablin for vims thta's light as air.
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+""" Status theme
+Plug 'ajmwagar/vim-deus'
 
 "" UltiSnips is the ultimate solution for snippets in Vim. it has many
 "" features speed being one of the
@@ -57,6 +61,13 @@ set autoindent
 set number
 set relativenumber
 
+
+" Status theme
+let g:airline_theme = 'deus'
+
+" Colorscheme theme
+colorscheme deus
+
 " UltiSnips Configuration
 "" Trigger configuration
 let g:UltiSnipsSnippetDirectories=["my_snippets"]
@@ -68,5 +79,22 @@ let g:UltiSnipsJumpBackwardTrigger="<C-j>"
 " Telescope Configuration
 "" Find files
 let mapleader=" "
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>ff <cmd>Telescope find_files theme=dropdown<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep theme=dropdown<cr>
+
+
+set listchars=eol:↵,trail:~,tab:>-,nbsp:␣
+
+lua <<EOF
+local actions = require("telescope.actions")
+require("telescope").setup{
+  defaults = {
+    mappings = {
+      i = {
+        ['<C-j>'] = require('telescope.actions').move_selection_next,
+        ['<C-k>'] = require('telescope.actions').move_selection_previous,
+      },
+    },
+  }
+}
+EOF
