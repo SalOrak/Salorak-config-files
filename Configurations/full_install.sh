@@ -7,27 +7,27 @@ cat dconf/dcon-settings.ini | dconf load /
 
 # fonts installation
 echo "[FONTS] Installing fonts"
-./$(pwd)/fonts/install_fonts.sh
+.$(pwd)/fonts/install_fonts.sh
 
 # latexmk installation
 echo "[LATEXMK] Installing latexmk"
-./$(pwd)/latexmk/install_latexmk.sh
+.$(pwd)/latexmk/install_latexmk.sh
 
 # rust installation
 echo "[RUST] Installing rust"
-./$(pwd)/rust/install_rust.sh
+.$(pwd)/rust/install_rust.sh
 
 # alacritty installation
 echo "[ALACRITTY] Installing alacritty"
-./$(pwd)/alacritty/install_terminal.sh
+.$(pwd)/alacritty/install_terminal.sh
 
 # tmux installation
 echo "[TMUX] Installing tmux"
-sudo ./$(pwd)/tmux/install_tmux.sh
+sudo .$(pwd)/tmux/install_tmux.sh
 
 # nvim installation
 echo "[NVIM] Installing nvim"
-sudo ./$(pwd)/nvim/install_nvim.sh
+sudo .$(pwd)/nvim/install_nvim.sh
 
 # xfce4 shortcuts
 echo "[XFCE4] Adding xfce4 shortcuts"
