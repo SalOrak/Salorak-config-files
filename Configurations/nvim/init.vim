@@ -79,7 +79,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-j>"
 " Telescope Configuration
 "" Find files
 let mapleader=" "
-nnoremap <leader>ff <cmd>Telescope find_files theme=dropdown<cr>
+nnoremap <leader>ff <cmd>Telescope find_files hidden=true theme=dropdown<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep theme=dropdown<cr>
 
 
