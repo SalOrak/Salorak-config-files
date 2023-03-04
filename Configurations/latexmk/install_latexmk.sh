@@ -1,5 +1,6 @@
 #!/bin/bash 
- 
+repo=$HOME/repos/salorak-config-files/Configurations/latexmk 
+
 # Install latexmk ( Latex cross-files compilation) 
 if [[ ! $(dpkg-query -l "latexmk") ]];
 then
@@ -33,7 +34,7 @@ then
 		Y | y | yes | Yes | YES )
 			echo "<< Overriding latexmk configuration >>"
 			rm $HOME/.config/latexmk/latexmkrc
-			ln -s $(pwd)/latexmkrc $HOME/.config/latexmk/latexmkrc
+			ln -s $repo/latexmkrc $HOME/.config/latexmk/latexmkrc
 			;;
 		*)
 		echo "<<! Exiting latexmk configuration. !>>"	
@@ -41,7 +42,7 @@ then
 	esac
  
 else
-	ln -s $(pwd)/latexmkrc $HOME/.config/latexmk/latexmkrc
+	ln -s $repo/latexmkrc $HOME/.config/latexmk/latexmkrc
 fi
 
 echo ":: LATEX installation completed ::"

@@ -1,5 +1,6 @@
 #!/bin/bash
- 
+
+repo=$HOME/repos/salorak-config-files/Configurations/tmux
 # Run as root
  
 if [[ $EUID != 0 ]];
@@ -26,7 +27,7 @@ then
 		Y | y | yes | Yes | YES)
 			echo "<< Overriding tmux.conf configuration >>"
 			rm /etc/tmux.conf
-			ln -s $(pwd)/tmux.conf /etc/tmux.conf
+			ln -s $repo/tmux/tmux.conf /etc/tmux.conf
 			;;
 		*)
 			echo "<<! Exiting tmux configuration !>>"
@@ -34,7 +35,7 @@ then
 			;;
 	esac
 else
-	ln -s $(pwd)/tmux.conf /etc/tmux.conf
+	ln -s $repo/tmux.conf /etc/tmux.conf
 fi
  
 echo "<< Sourcing tmux.conf >>"

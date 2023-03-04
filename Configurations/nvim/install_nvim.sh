@@ -1,5 +1,6 @@
 #!/bin/bash 
  
+repo=$HOME/repos/salorak-config-files/Configurations/nvim
 ## Install nvim
 echo "<<! Installing neovim... !>>"
 sudo apt-get install neovim -y
@@ -49,9 +50,9 @@ then
 			echo "<< Overriding nvim init configuration >>"
 			rm $HOME/.config/nvim/init.vim
 			rm $HOME/.config/nvim/ftplugin/tex.vim
-			ln -s $(pwd)/init.vim $HOME/.config/nvim/init.vim
-			ln -s $(pwd)/ftplugin/tex.vim $HOME/.config/nvim/ftplugin/tex.vim
-			cp $(pwd)/my_snippets/* $HOME/.config/nvim/my_snippets/
+			ln -s $repo/init.vim $HOME/.config/nvim/init.vim
+			ln -s $repo/ftplugin/tex.vim $HOME/.config/nvim/ftplugin/tex.vim
+			cp $repo/my_snippets/* $HOME/.config/nvim/my_snippets/
 			;;
 		*)
 		echo "<<! Exiting nvim configuration. !>>"	
@@ -59,9 +60,9 @@ then
 	esac
  
 else
-	ln -s $(pwd)/init.vim $HOME/.config/nvim/init.vim
-	ln -s $(pwd)/ftplugin/tex.vim $HOME/.config/nvim/ftplugin/tex.vim
-	cp $(pwd)/my_snippets/* $HOME/.config/nvim/my_snippets/
+	ln -s $repo/init.vim $HOME/.config/nvim/init.vim
+	ln -s $repo/ftplugin/tex.vim $HOME/.config/nvim/ftplugin/tex.vim
+	cp $repo/my_snippets/* $HOME/.config/nvim/my_snippets/
 fi
  
  
