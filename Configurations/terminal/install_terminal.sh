@@ -7,7 +7,6 @@ echo "<<! Installing dependencies..>>"
 sudo apt-get update
 sudo apt-get install gzip git cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y
 
-
 # Git clone
 echo "<<! Cloning github repository..>>"
 git clone https://github.com/alacritty/alacritty.git
@@ -15,6 +14,7 @@ git clone https://github.com/alacritty/alacritty.git
 # Build alacritty
 echo "<<! Building alacritty ..>>"
 cd alacritty/
+source $HOME/.cargo/env
 cargo build --release
 
 # Adding to path (/usr/local/bin)
