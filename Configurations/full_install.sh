@@ -3,31 +3,32 @@
 
 # dconf installation
 echo "[DCONF] Adding dconf.."
+sudo apt-get update && sudo apt-get install dconf -y
 cat dconf/dcon-settings.ini | dconf load /
 
 # fonts installation
 echo "[FONTS] Installing fonts"
-.$(pwd)/fonts/install_fonts.sh
+./fonts/install_fonts.sh
 
 # latexmk installation
 echo "[LATEXMK] Installing latexmk"
-.$(pwd)/latexmk/install_latexmk.sh
+./latexmk/install_latexmk.sh
 
 # rust installation
 echo "[RUST] Installing rust"
-.$(pwd)/rust/install_rust.sh
+./rust/install_rust.sh
 
 # alacritty installation
 echo "[ALACRITTY] Installing alacritty"
-.$(pwd)/alacritty/install_terminal.sh
+./terminal/install_terminal.sh
 
 # tmux installation
 echo "[TMUX] Installing tmux"
-sudo .$(pwd)/tmux/install_tmux.sh
+sudo ./tmux/install_tmux.sh
 
 # nvim installation
 echo "[NVIM] Installing nvim"
-sudo .$(pwd)/nvim/install_nvim.sh
+./nvim/install_nvim.sh
 
 # xfce4 shortcuts
 echo "[XFCE4] Adding xfce4 shortcuts"
