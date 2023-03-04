@@ -1,14 +1,8 @@
 #!/bin/bash 
  
 ## Install nvim
-if [[ ! $(dpkg-query -l "neovim") ]];
-then
-	echo "<<! Installing neovim... !>>"
-	sudo apt-get install neovim -y
-else
-	echo "<<! Found neovim package... !>>"
-	echo "<<! Skipping neovim installation... !>>"
-fi
+echo "<<! Installing neovim... !>>"
+sudo apt-get install neovim -y
 
 ## Install fd (for fast find)
 if [[ !$(dpkg-query -l "fdfind") ]];
@@ -79,9 +73,10 @@ nvim -c 'PlugInstall' -c 'q!' -c 'q!'
  
 ## Add alias to nvim
 echo -e "<< Adding aliases to nvim ?>>"
-if [[ ! $(cat ~/.bash_aliases | grep "alias vi") ]];
+touch $HOME/.bash_aliases
+
+if [[ !$(cat $HOME/.bash_aliases | grep "alias vi") ]];
 then
-	touch $HOME/.bash_aliases
 	echo -e 'alias vi="nvim"\nalias vim="nvim"' >> $HOME/.bash_aliases
 else
 	echo "<<! Found vi stablished aliases !>>"

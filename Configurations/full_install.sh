@@ -32,6 +32,7 @@ echo "[NVIM] Installing nvim"
 
 # xfce4 shortcuts
 echo "[XFCE4] Adding xfce4 shortcuts"
+rm $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 ln -s $(pwd)/xfce4/xfce4-keyboard-shortcuts.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 
 
