@@ -4,7 +4,7 @@
 # dconf installation
 echo "[DCONF] Adding dconf.."
 sudo apt-get update && sudo apt-get install dconf -y
-cat dconf/dcon-settings.ini | dconf load /
+cat dconf/dconf-settings.ini | dconf load /
 
 # fonts installation
 echo "[FONTS] Installing fonts"
