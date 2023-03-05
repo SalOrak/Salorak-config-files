@@ -1,13 +1,6 @@
 #!/bin/bash
 
 repo=$HOME/repos/salorak-config-files/Configurations/tmux
-# Run as root
- 
-if [[ $EUID != 0 ]];
-then
-	echo "Script must be run as root."
-	exit 1;
-fi
  
  
 ## Check if tmux is installed
@@ -15,19 +8,19 @@ fi
 if [[ ! $(dpkg-query -l tmux) ]];
 then
 	echo ":: Installing tmux via apt ::"
-	apt-get install tmux -y
+	sudo apt-get install tmux -y
 fi
  
  
-if [[ -e "/etc/tmux.conf" ]]
+if [[ -e "$HOME/.tmux.conf" ]]
 then
 	echo "<<? Do you want to override configuration? ??? [y/N]"
 	read -r input
 	case $input in
 		Y | y | yes | Yes | YES)
 			echo "<< Overriding tmux.conf configuration >>"
-			rm /etc/tmux.conf
-			ln -s $repo/tmux/tmux.conf /etc/tmux.conf
+			rm $HOME/.tmux.conf
+			ln -s $repo/tmux/tmux.conf $HOME/.tmux.conf
 			;;
 		*)
 			echo "<<! Exiting tmux configuration !>>"
@@ -39,7 +32,7 @@ else
 fi
  
 echo "<< Sourcing tmux.conf >>"
-source /etc/tmux.conf &>/dev/null
+source $HOME/.tmux.conf &>/dev/null
  
 echo ":: TMUX installation completed ::"
 exit 0

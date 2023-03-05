@@ -24,7 +24,7 @@ echo "[ALACRITTY] Installing alacritty"
 
 # tmux installation
 echo "[TMUX] Installing tmux"
-sudo ./tmux/install_tmux.sh
+./tmux/install_tmux.sh
 
 # nvim installation
 echo "[NVIM] Installing nvim"
