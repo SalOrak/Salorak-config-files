@@ -49,7 +49,9 @@ if has('syntax')
 	syntax on
 endif
  
- 
+" Remaps jk as Esc only in Insert Mode (to get out of insert mode)
+inoremap jk <Esc>
+
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
  

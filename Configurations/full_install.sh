@@ -1,8 +1,12 @@
 #!/bin/bash
 
+# bash link
+echo "[BASHRC] Linking .bashrc"
+mv $HOME/.bashrc $HOME/.bashrc_backup
+ln -s $(pwd)/bash/bashrc $HOME/.bashrc
 
 # dconf installation
-echo "[DCONF] Adding dconf.."
+echo "[DCONF] Adding dconf"
 sudo apt-get update && sudo apt-get install dconf -y
 cat dconf/dconf-settings.ini | dconf load /
 
