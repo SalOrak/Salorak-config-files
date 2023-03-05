@@ -28,7 +28,7 @@ then
 			;;
 	esac
 else
-	ln -s $repo/tmux.conf /etc/tmux.conf
+	ln -s $repo/tmux.conf $HOME/.tmux.conf
 fi
  
 echo "<< Sourcing tmux.conf >>"
