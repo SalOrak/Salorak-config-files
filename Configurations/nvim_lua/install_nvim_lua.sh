@@ -14,7 +14,8 @@ rm /tmp/nvim-linux64.deb
 sudo apt-get install xclip -y
 
 # Install python3 with pynvim
-sudo apt-get install python3 pip3 -y
+sudo apt-get install python3 -y
+python3 -m pip install --upgrade pip
 pip3 install pynvim 
 
 # Install packer
@@ -23,4 +24,4 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 nvim -c 'PackerSync' -c 'q!' -c 'q!'
 
-ln -s (pwd)/* ~/.config/nvim/
+ln -s $(pwd)/* ~/.config/nvim/
