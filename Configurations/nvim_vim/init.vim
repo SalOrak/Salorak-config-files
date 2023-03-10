@@ -19,6 +19,9 @@ Plug 'ajmwagar/vim-deus'
 "" UltiSnips is the ultimate solution for snippets in Vim. it has many
 "" features speed being one of the
 Plug 'SirVer/ultisnips'
+
+"" nvim-surround
+Plug 'kylechui/nvim-surround'
  
 "" Syntax checking plugin. It runs files through external syntax
 "" checker and siplays any resulting erros to the users. 
@@ -78,6 +81,8 @@ let g:UltiSnipsListSnippets="<C-tab>"
 let g:UltiSnipsJumpForwardTrigger="<C-k>"
 let g:UltiSnipsJumpBackwardTrigger="<C-j>"
 
+" Nvim-surrounds
+
 " Telescope Configuration
 "" Find files
 let mapleader=" "
@@ -88,7 +93,10 @@ nnoremap <leader>fg <cmd>Telescope live_grep theme=dropdown<cr>
 set listchars=eol:↵,trail:~,tab:>-,nbsp:␣
 
 lua <<EOF
-local actions = require("telescope.actions")
+require("nvim-surround")
+EOF
+
+lua <<EOF
 require("telescope").setup{
   defaults = {
     mappings = {
@@ -100,3 +108,5 @@ require("telescope").setup{
   }
 }
 EOF
+
+
