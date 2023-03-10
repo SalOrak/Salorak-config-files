@@ -32,7 +32,8 @@ echo "[TMUX] Installing tmux"
 
 # nvim installation
 echo "[NVIM] Installing nvim"
-./nvim/install_nvim.sh
+#./nvim_vim/install_nvim.sh # Uses vim scripting
+./nvim_lua/install_nvim_lua.sh # Uses LUA and Neovim 0.9.0
 
 # xfce4 shortcuts
 echo "[XFCE4] Adding xfce4 shortcuts"
