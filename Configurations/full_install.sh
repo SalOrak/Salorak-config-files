@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# bash link
+# Install dependencies
+echo "[DEPENDENCIES] Installing dependencies and applications .."
+./dependencies/install_dependencies.sh
+
+# Bash link
 echo "[BASHRC] Linking .bashrc"
 mv $HOME/.bashrc $HOME/.bashrc_backup
 ln -s $(pwd)/bash/bashrc $HOME/.bashrc

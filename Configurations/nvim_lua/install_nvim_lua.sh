@@ -15,6 +15,7 @@ sudo apt-get install xclip -y
 
 # Install python3 with pynvim
 sudo apt-get install python3 -y
+sudo apt-get install python3-pip -y
 python3 -m pip install --upgrade pip
 pip3 install pynvim 
 
@@ -22,6 +23,8 @@ pip3 install pynvim
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+mkdir -p ~/.config/nvim
+ln -s $(pwd)/* ~/.config/nvim/
+
 nvim -c 'PackerSync' -c 'q!' -c 'q!'
 
-ln -s $(pwd)/* ~/.config/nvim/
