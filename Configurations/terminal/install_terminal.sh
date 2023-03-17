@@ -43,4 +43,4 @@ git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/theme
 
 # link soft alacritty.yml
 echo "<<! Soft link alacritty.yml ..>>"
-ln -s  $repo/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+ln -s  $(repo)/alacritty.yml $HOME/.config/alacritty/alacritty.yml

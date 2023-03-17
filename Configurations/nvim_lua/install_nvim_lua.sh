@@ -1,7 +1,10 @@
 #!/bin/bash
 
+repo=$HOME/repos/salorak-config-files/Configurations/nvim_lua/
+
 # Change location to run correctly
 # https://askubuntu.com/questions/1403337/download-is-performed-unsandboxed-as-root-as-file/1416892#1416892
+
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb 
 mv nvim-linux64.deb /tmp/nvim-linux64.deb
 
@@ -24,7 +27,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 mkdir -p ~/.config/nvim
-ln -s $(pwd)/* ~/.config/nvim/
+ln -s $repo/* ~/.config/nvim/
 
 nvim -c 'PackerSync' -c 'q!' -c 'q!'
 

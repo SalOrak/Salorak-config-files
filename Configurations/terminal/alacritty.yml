@@ -9,7 +9,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/themes/themes/gotham.yaml
+  - ~/.config/alacritty/themes/themes/github_dimmed.yaml
 #  - /path/to/alacritty.yml
 
 # Any items in the `env` entry below will be added as
@@ -80,7 +80,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Fullscreen
+  startup_mode: Windowed
 
   # Window title
   #title: Alacritty
