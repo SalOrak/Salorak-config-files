@@ -6,3 +6,6 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 
 vim.keymap.set("i", "jk", "<Esc>")
+
+vim.keymap.set("n", "yaf", "va{Vy")
+vim.keymap.set("n", "yif", "vi{Vy")
