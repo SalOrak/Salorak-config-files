@@ -40,6 +40,10 @@ pip3 install pynvim
 echo "[NVIM-LUA] << Installing ripgrep via apt >>" 
 sudo apt-get --quiet install ripgrep -y
 
+# Install libfuse2
+echo "[NVIM-LUA] << Installing libfuse dependency via apt for executing .appimage >>" 
+sudo apt-get install libfuse2 -y
+
 # Install packer
 echo "[NVIM-LUA] << Installing packer.nvim >>" 
 
