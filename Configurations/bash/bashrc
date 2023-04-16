@@ -172,7 +172,7 @@ bind -r "\e" # Unbind escap
 
 function dotfiles {
     curr=$(pwd);
-    path="~/repos/salorak-config-files";
+    path="/home/$USER/repos/salorak-config-files/Configurations/";
     cd $path;
     nvim . ;
     cd $curr;
