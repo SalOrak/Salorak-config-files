@@ -1,43 +1,45 @@
 #!/bin/bash 
 repo=$HOME/repos/salorak-config-files/Configurations/latexmk 
 
+echo "[LATEX] << LATEX installation started >>" 
+
 # Install latexmk ( Latex cross-files compilation) 
 if [[ ! $(dpkg-query -l "latexmk") ]];
 then
-	echo "<<! Installing latexmk... !>>"
-	sudo apt-get install latexmk -y
-	sudo apt-get install texlive-luatex -y # Installs dependencies not found on certain distros such as Debian
+	echo "[LATEX] <<! Installing latexmk... !>>"
+	sudo apt-get --quiet install latexmk -y
+	sudo apt-get --quiet install texlive-luatex -y # Installs dependencies not found on certain distros such as Debian
 else
-	echo "<<! Found latexmk package... !>>"
-	echo "<<! Skipping latexmk installation... !>>"
+	echo "[LATEX] <<! Found latexmk package... !>>"
+	echo "[LATEX] <<! Skipping latexmk installation... !>>"
 fi
 
 # Install zathura ( PDF viewer among others)
 if [[ ! $(dpkg-query -l "zathura") ]];
 then
-	echo "<<! Installing zathura.. !>>"
-	sudo apt-get install zathura -y 
+	echo "[LATEX] <<! Installing zathura.. !>>"
+	sudo apt-get --quiet install zathura -y 
 else
-	echo "<!! Found zathura ..!>>"
-	echo "<!! Skipping zathura installation...!>>"
+	echo "[LATEX] <!! Found zathura ..!>>"
+	echo "[LATEX] <!! Skipping zathura installation...!>>"
 fi
 
 ## Link latexmkrc file
-echo "<< Soft link latexmkrc configuration ?>>"
+echo "[LATEX] << Soft link latexmkrc configuration ?>>"
 mkdir -p ~/.config/latexmk/
 if [[ -e "$HOME/.config/latexmk/latexmkrc" || -h "$HOME/.config/latexmk/latexmkrc" ]];
 then
-	echo "<<?? Do you want to override configuration??>>  [y/N]"
+	echo "[LATEX] <<?? Do you want to override configuration??>>  [y/N]"
 	read -r -n 1 input
 		printf "\n"
 	case $input in
 		Y | y | yes | Yes | YES )
-			echo "<< Overriding latexmk configuration >>"
+			echo "[LATEX] << Overriding latexmk configuration >>"
 			rm $HOME/.config/latexmk/latexmkrc
 			ln -s $repo/latexmkrc $HOME/.config/latexmk/latexmkrc
 			;;
 		*)
-		echo "<<! Exiting latexmk configuration. !>>"	
+		echo "[LATEX] <<! Exiting latexmk configuration. !>>"	
 		exit 0;
 	esac
  
@@ -45,5 +47,4 @@ else
 	ln -s $repo/latexmkrc $HOME/.config/latexmk/latexmkrc
 fi
 
-echo ":: LATEX installation completed ::"
-exit 0
+echo "[LATEX] << LATEX installation finished >>" 

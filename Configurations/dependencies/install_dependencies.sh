@@ -4,12 +4,9 @@
 # Install apt-get dependencies
 ## General dependencies
 echo "<< Installing general dependencies.. >>"
-sudo apt-get install xclip -y 
-sudo apt-get install curl
+sudo apt-get --quiet install xclip -y 
+sudo apt-get --quiet install curl -y
 
 
-## NVIM
-#echo "<< Installing NVIM dependencies.. >>"
-#sudo apt-get install python3 python3-pip -y
 
 

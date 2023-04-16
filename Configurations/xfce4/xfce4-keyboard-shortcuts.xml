@@ -43,7 +43,7 @@
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Print" type="string" value="/usr/share/kali-themes/xfce4-screenshooter --window --clipboard"/>
       <property name="XF86Display" type="string" value="xfce4-display-settings --minimal"/>
-      <property name="&lt;Super&gt;Return" type="string" value="exo-open --launch TerminalEmulator -e tmux"/>
+      <property name="&lt;Super&gt;Return" type="string" value="exo-open --launch alacritty -e tmux"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;f" type="string" value="firefox-esr"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;o" type="string" value="/home/salorack/Downloads/Obsidian.AppImage"/>
     </property>

@@ -170,3 +170,12 @@ bind '"jk":vi-movement-mode'
 bind -r "\e" # Unbind escap
 
 
+function dotfiles {
+    curr=$(pwd);
+    path="~/repos/salorak-config-files";
+    cd $path;
+    nvim . ;
+    cd $curr;
+}
+
+export -f dotfiles
