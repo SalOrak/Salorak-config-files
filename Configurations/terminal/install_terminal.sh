@@ -60,6 +60,6 @@ fi
 
 # link soft alacritty.yml
 echo "[ALACRITTY] <<! Soft link alacritty.yml ..>>"
-ln -f -s  $(repo)/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+ln -f -s  $repo/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 echo "[ALACRITTY] <<! Alacritty installation finished >>"
