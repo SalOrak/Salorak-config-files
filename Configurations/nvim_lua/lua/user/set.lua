@@ -27,4 +27,11 @@ vim.opt.termguicolors = false
 -- Keeps at least 8 rows below or above at any time, except on EOF
 vim.opt.scrolloff = 8
 
+-- Show typed command in status bar
+vim.opt.showcmd = true
 
+-- Show file title in status bar
+vim.opt.title= true
+
+-- Status line
+vim.opt.statusline = "%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
