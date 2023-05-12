@@ -30,6 +30,9 @@ vim.opt.scrolloff = 8
 -- Show typed command in status bar
 vim.opt.showcmd = true
 
+-- Update time 
+vim.opt.updatetime = 50
+
 -- Show file title in status bar
 vim.opt.title= true
 

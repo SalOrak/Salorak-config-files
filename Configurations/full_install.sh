@@ -9,6 +9,9 @@ echo "[BASHRC] << Linking .bashrc >>"
 mv $HOME/.bashrc $HOME/.bashrc_backup
 ln -f -s $(pwd)/bash/bashrc $HOME/.bashrc
 
+# Add scripts to path
+export PATH=$(pwd)/scripts/:$PATH
+
 # dconf installation
 echo "[DCONF] << Adding dconf >>"
 sudo apt-get update && sudo apt-get --quiet install dconf -y

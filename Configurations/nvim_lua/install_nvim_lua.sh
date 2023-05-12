@@ -40,6 +40,14 @@ pip3 install pynvim
 echo "[NVIM-LUA] << Installing ripgrep via apt >>" 
 sudo apt-get --quiet install ripgrep -y
 
+# Install sharkdp/fd --> finds entries in the filesystem 
+echo "[NVIM-LUA] << Installing sharkdp/fd via apt >>" 
+sudo apt-get --quiet install fd-find -y
+
+# Install make in for the telescope-fzf-native.nvim plugin
+echo "[NVIM-LUA] << Installing make via apt >>" 
+sudo apt-get --quiet install make -y
+
 # Install libfuse2
 echo "[NVIM-LUA] << Installing libfuse dependency via apt for executing .appimage >>" 
 sudo apt-get install libfuse2 -y
@@ -62,6 +70,6 @@ ln -f -s $repo/* ~/.config/nvim/
 
 
 echo "[NVIM-LUA] << PackerSync started >>"
-nvim -c 'PackerSync' -c 'q!' -c 'q!'
+nvim -c 'q!' -c 'q!' -c 'PackerSync' -c 'q!'
 echo "[NVIM-LUA] << Finished NVIM-LUA installation >>"
 

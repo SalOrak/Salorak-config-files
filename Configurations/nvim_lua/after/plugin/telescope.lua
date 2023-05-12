@@ -16,5 +16,14 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
+-- Command history
+vim.keymap.set('n', '<leader>ch', builtin.command_history, {})
+
+-- Helping pages
+vim.keymap.set('n', '<leader>ht', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>tm', builtin.man_pages, {})
+
+-- Fuzzy Finder algorithm using telescope fzf native
+pcall(require('telescope').load_extension, 'fzf')
 
 
