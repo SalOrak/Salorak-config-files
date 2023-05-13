@@ -19,6 +19,8 @@ vim.keymap.set("n", "yif", "vi{Vy}")
 -- Remap jk to Esc (enter normal mode without pressing Esc)
 vim.keymap.set("i", "jk", "<Esc>")
 
+-- Set working directory to current directory
+vim.keymap.set("n", "<leader>cd", ":cd %p:h<CR>:pwd<CR>")
 
 
 -- Tmux sessionzier

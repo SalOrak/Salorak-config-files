@@ -10,7 +10,7 @@ mv $HOME/.bashrc $HOME/.bashrc_backup
 ln -f -s $(pwd)/bash/bashrc $HOME/.bashrc
 
 # Add scripts to path
-export PATH=$(pwd)/scripts/:$PATH
+ln -s $(pwd)/scripts/tmux-sessionzier /usr/local/bin/tmux-sessionizer
 
 # dconf installation
 echo "[DCONF] << Adding dconf >>"
