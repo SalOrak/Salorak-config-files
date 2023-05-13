@@ -21,7 +21,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 -- Dont want termguicoloros as I'm using alacritty
-vim.opt.termguicolors = false
+vim.opt.termguicolors = true
 
 
 -- Keeps at least 8 rows below or above at any time, except on EOF
