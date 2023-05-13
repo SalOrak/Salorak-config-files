@@ -66,7 +66,6 @@ else
 fi
  
  
- 
 ## Execute Vim-Plug installation and Quit
 echo "<< Installing vim plugins ?>>"
 nvim -c 'PlugInstall' -c 'q!' -c 'q!' 

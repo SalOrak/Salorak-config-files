@@ -33,5 +33,11 @@ fi
  
 echo "[TMUX] << Sourcing tmux.conf >>"
 source $HOME/.tmux.conf &>/dev/null
+
+if [[ $(cat ~/.bash_aliases | grep tmux) -ge 1 ]];
+then
+    echo "[TMUX] << Adding alias on .bash_aliases >>"
+    echo "alias t=tmux" >> ~/.bash_aliases
+fi
  
 echo "[TMUX] << TMUX installation completed >>" 
