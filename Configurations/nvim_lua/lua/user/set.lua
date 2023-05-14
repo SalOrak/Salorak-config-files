@@ -1,5 +1,4 @@
 -- Command to change editor settings
---
 
 -- Set leader map to Space
 vim.g.mapleader = " "
@@ -20,21 +19,23 @@ vim.opt.smartindent = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
--- Dont want termguicoloros as I'm using alacritty
+-- Termguicolors 
 vim.opt.termguicolors = true
-
 
 -- Keeps at least 8 rows below or above at any time, except on EOF
 vim.opt.scrolloff = 8
 
--- Show typed command in status bar
-vim.opt.showcmd = true
+-- Turn off statusline
+vim.opt.laststatus= 0
 
 -- Update time 
 vim.opt.updatetime = 50
 
+-- Show typed command in status bar
+vim.opt.showcmd = true
+
 -- Show file title in status bar
-vim.opt.title= true
+-- vim.opt.title= false
 
 -- Status line
-vim.opt.statusline = "%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+--vim.opt.statusline = "%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"

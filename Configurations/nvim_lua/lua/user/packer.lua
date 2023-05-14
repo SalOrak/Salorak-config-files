@@ -5,7 +5,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim' 
+    use 'wbthomason/packer.nvim'
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
     })
 
 use {
-    'nvim-treesitter/nvim-treesitter', 
+    'nvim-treesitter/nvim-treesitter',
     run = function()
         local ts_update = require ('nvim-treesitter.install').update({with_sync = true})
         ts_update()
@@ -35,6 +35,10 @@ use ('lervag/vimtex') -- Latex integration
 
 -- use ('tpope/fugitive.lua') Git integration
 
+-- Status line plus icons 
+use {
+  'nvim-lualine/lualine.nvim',
+}
 
 -- LSP Configuration
  use {
