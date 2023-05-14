@@ -33,7 +33,7 @@ use ('theprimeagen/harpoon') -- Fast file/terminal switcher. Game changer.
 use ('SirVer/ultisnips') -- Snippets 
 use ('lervag/vimtex') -- Latex integration
 
--- use ('tpope/fugitive.lua') Git integration
+use ('tpope/vim-fugitive') -- Git integration
 
 -- Status line plus icons 
 use {
